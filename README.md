@@ -4,13 +4,13 @@ O objetivo desse projeto é fazer a integração entre essas duas tecnologias em
 
 ## De onde começar
 
-Esse é um projeto Java, que usa banco de dados mySQL
+Esse é um projeto Java, que usa banco de dados mySQL, em front-end foi utilizado o framework "foundation"
 
 ### Prerequisitos
 
 Um IDE que aceite Java (Para esse projeto foi usado o Eclipse), e o banco de dados MySQL
 
-### Installing
+### Instalando
 
 Abra o arquivo "DB.txt" e rode o script sql de criação do banco de dados
 
