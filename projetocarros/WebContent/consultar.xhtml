@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="template.xhtml">
+<ui:define name="title">
+	   Home - Consultar
+</ui:define>
+
+<ui:define name="content">
+	   
+  			<h:form>
+  				<h:dataTable id="carroDT" value="#{carroMBean.lista}" 
+		   var="carro" rowKey="#{carro.id}"
+           selectionMode="single" selection="#{carroMBean.selecionado}"
+		   paginator="true" rows="10"  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+           rowsPerPageTemplate="5,10,15" >
+           
+  				<f:facet name="header">
+               Listagem dos Carros Cadastrados
+           		</f:facet>
+  			
+  			<h:column headerText="ID" style="width:25px"  
+			       sortBy="#{carro.id}"  filterBy="#{carro.id}">
+			       <f:facet name="header">
+					<h:outputText value="ID" />
+					</f:facet> 
+				<h:outputText value="#{carro.id}"/>
+			</h:column>
+
+			<h:column headerText="Ano" style="width:100px"  
+			       sortBy="#{carro.ano}"  filterBy="#{carro.ano}" filterMatchMode="contains">
+			       <f:facet name="header">
+					<h:outputText value="ANO" />
+					</f:facet> 
+				<h:outputText value="#{carro.ano}"/>
+			</h:column>
+
+ 		    <h:column headerText="Modelo" style="width:70px"
+ 		         sortBy="#{carro.modelo}"  filterBy="#{carro.modelo}" filterMatchMode="contains">
+ 		         <f:facet name="header">
+					<h:outputText value="MODELO" />
+					</f:facet> 
+				<h:outputText value="#{carro.modelo}"/>
+			</h:column>
+			<h:column headerText="Fabricante" style="width:40px"
+ 		         sortBy="#{carro.fabricante}"  filterBy="#{carro.fabricante}" filterMatchMode="contains">
+ 		         <f:facet name="header">
+					<h:outputText value="FABRICANTE" />
+					</f:facet> 
+				<h:outputText value="#{carro.fabricante}"/>
+			</h:column>
+			
+			<h:column headerText="Acoes" style="width:40px">
+ 		         <f:facet name="header">
+					<h:outputText value="AÇÕES" />
+					</f:facet> 
+				<h:commandButton value="Alterar" class="button" action="#{carroMBean.alterarPage(carro.id)}" ajax="false" />
+               	<h:commandButton value="Excluir" class="button" actionListener="#{carroMBean.excluirAction(carro.id)}" update="carroDT" />
+			</h:column>
+			
+  				</h:dataTable>
+  			</h:form>
+  			
+		
+</ui:define>
+
+</ui:composition>
+</html>

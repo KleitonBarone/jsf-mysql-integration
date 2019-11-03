@@ -1,0 +1,11 @@
+create database projetocarro;
+use projetocarro;
+CREATE TABLE carro
+(
+   id int,
+   ano int,
+   modelo varchar(30),
+   fabricante varchar(30)
+)
+;
+
